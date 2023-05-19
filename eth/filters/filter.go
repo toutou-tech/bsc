@@ -19,6 +19,7 @@ package filters
 import (
 	"context"
 	"errors"
+	"github.com/ethereum/go-ethereum/params"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -40,6 +41,8 @@ type Backend interface {
 	GetLogs(ctx context.Context, blockHash common.Hash) ([][]*types.Log, error)
 	PendingBlockAndReceipts() (*types.Block, types.Receipts)
 
+	CurrentHeader() *types.Header
+	ChainConfig() *params.ChainConfig
 	SubscribeNewTxsEvent(chan<- core.NewTxsEvent) event.Subscription
 	SubscribeChainEvent(ch chan<- core.ChainEvent) event.Subscription
 	SubscribeFinalizedHeaderEvent(ch chan<- core.FinalizedHeaderEvent) event.Subscription
