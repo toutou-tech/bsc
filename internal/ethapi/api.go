@@ -2751,7 +2751,7 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 
 		receipt, result, err := core.ApplyTransactionWithResult(s.b.ChainConfig(), s.chain, &coinbase, gp, state, header, tx, &header.GasUsed, vmconfig)
 		if err != nil {
-			return nil, fmt.Errorf("block_number: %d, block_hash: %s, txhash %s, err %w", parent.Number.Uint64(), parent.Hash().String(), tx.Hash(), err);			
+			return nil, fmt.Errorf("err: %w; stateBlockNumber %d, stateBlockHash %s, txhash %s", err, parent.Number.Int64(), parent.Hash(), tx.Hash());
 		}
 
 		txHash := tx.Hash().String()
