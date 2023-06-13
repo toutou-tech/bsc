@@ -2636,7 +2636,7 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 	timeout := time.Millisecond * time.Duration(timeoutMilliSeconds)
 	state, parent, err := s.b.StateAndHeaderByNumberOrHash(ctx, args.StateBlockNumberOrHash)
 	if state == nil || err != nil {
-		return nil, err
+		return nil, fmt.Errorf("block_number: %d, block_hash: %s, err %w", parent.Number.Uint64(), parent.Hash().String(), err);
 	}
 	if err := args.StateOverrides.Apply(state); err != nil {
 		return nil, err
