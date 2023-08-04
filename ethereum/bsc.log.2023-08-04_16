@@ -1,0 +1,67 @@
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Sanitizing cache to Go's GC limits" provided=8000 updated=2730
+t=2023-08-04T16:58:27+0800 lvl=info msg="Set global gas cap"                 cap=50,000,000
+t=2023-08-04T16:58:27+0800 lvl=info msg="Allocated trie memory caches"       clean="409.00 MiB" dirty="682.00 MiB"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Allocated cache and file handles"   database=/Users/liulc/go/src/github.com/bsc/ethereum/geth/chaindata cache="1.07 GiB" handles=5120
+t=2023-08-04T16:58:27+0800 lvl=info msg="Read ancientdb item counts"         items=0
+t=2023-08-04T16:58:27+0800 lvl=info msg="Opened ancientdb with nodata mode"  database=/Users/liulc/go/src/github.com/bsc/ethereum/geth/chaindata/ancient frozen=0
+t=2023-08-04T16:58:27+0800 lvl=info msg="Writing default main-net genesis block"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Persisted trie from memory database"    nodes=12356 size="1.78 MiB" time=33.345104ms gcnodes=0 gcsize="0.00 B" gctime=0s livenodes=1 livesize="0.00 B"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Initialised chain configuration"        config="{ChainID: 1 Homestead: 1150000 DAO: 1920000 DAOSupport: true EIP150: 2463000 EIP155: 2675000 EIP158: 2675000 Byzantium: 4370000 Constantinople: 7280000 Petersburg: 7280000 Istanbul: 9069000, Muir Glacier: 9200000, Ramanujan: 0, Niels: 0, MirrorSync: 0, Bruno: 0, Berlin: 12244000, YOLO v3: <nil>, CatalystBlock: <nil>, London: 12965000, ArrowGlacier: 13773000, MergeFork:<nil>, Euler: 0, Gibbs: <nil>, Nano: <nil>, Moran: <nil>, Planck: <nil>,Luban: <nil>, Plato: <nil>, Hertz: <nil>, Engine: ethash}"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Unprotected transactions allowed"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Disk storage enabled for ethash caches" dir=/Users/liulc/go/src/github.com/bsc/ethereum/geth/ethash count=3
+t=2023-08-04T16:58:27+0800 lvl=info msg="Disk storage enabled for ethash DAGs"   dir=/Users/liulc/Library/Ethash count=2
+t=2023-08-04T16:58:27+0800 lvl=info msg="Initialising Ethereum protocol"         network=56 dbversion=<nil>
+t=2023-08-04T16:58:27+0800 lvl=info msg="Loaded most recent local header"        number=0 hash=0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3 td=17,179,869,184 age=54y4mo1w
+t=2023-08-04T16:58:27+0800 lvl=info msg="Loaded most recent local full block"    number=0 hash=0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3 td=17,179,869,184 age=54y4mo1w
+t=2023-08-04T16:58:27+0800 lvl=info msg="Loaded most recent local fast block"    number=0 hash=0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3 td=17,179,869,184 age=54y4mo1w
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Failed to load snapshot, regenerating"  err="missing or corrupted snapshot"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Rebuilding state snapshot"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Resuming state snapshot generation"     root=0xd7f8974fb5ac78d9ac099b9ad5018bedc2ce0a72dad1827a1709da30580f0544 accounts=0 slots=0 storage="0.00 B" elapsed="554.259µs"
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Sanitizing invalid txpool reannounce time" provided=0s   updated=1m0s
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Sanitizing invalid gasprice oracle price cap" provided=<nil> updated=100,000,000,000
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Sanitizing invalid gasprice oracle ignore price" provided=<nil> updated=4
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Sanitizing invalid gasprice oracle max header history" provided=0     updated=1
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Sanitizing invalid gasprice oracle max block history" provided=0     updated=1
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Subscribe for vote or finalized header event failed"
+t=2023-08-04T16:58:27+0800 lvl=warn msg="Error reading unclean shutdown markers" error="leveldb: not found"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Enabling metrics collection"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Enabling metrics export to InfluxDB"
+t=2023-08-04T16:58:27+0800 lvl=info msg="Enabling stand-alone metrics HTTP endpoint" address=0.0.0.0:6060
+t=2023-08-04T16:58:27+0800 lvl=info msg="Starting metrics server"                addr=http://0.0.0.0:6060/debug/metrics
+t=2023-08-04T16:58:27+0800 lvl=info msg="Starting peer-to-peer node"             instance=Geth/v1.2.10-22ff00ec/darwin-amd64/go1.19.5
+t=2023-08-04T16:58:27+0800 lvl=info msg="New local node record"                  seq=1,691,139,507,599 id=a3285a97a5bac1e08c29c7dbf84ba16e946244896445e424d2bfb06455f8e3de ip=127.0.0.1 udp=30311 tcp=30311
+t=2023-08-04T16:58:27+0800 lvl=info msg="Started P2P networking"                 self=enode://c62262d01e4d6c20e63a3a7ffebf8953efde8f3a19ca6e7dae1a13300fbe40dcd460f064c6387cbe0037f4b4347d874b19e46be72908743159578f30a5c6524d@127.0.0.1:30311
+t=2023-08-04T16:58:27+0800 lvl=info msg="IPC endpoint opened"                    url=/Users/liulc/go/src/github.com/bsc/ethereum/geth.ipc
+t=2023-08-04T16:58:27+0800 lvl=eror msg="Unavailable modules in HTTP API list"   unavailable=[parlia] available="[admin debug web3 eth txpool personal ethash miner net]"
+t=2023-08-04T16:58:27+0800 lvl=info msg="HTTP server started"                    endpoint=[::]:8545 prefix= cors= vhosts=*
+t=2023-08-04T16:58:27+0800 lvl=info msg="WebSocket enabled"                      url=ws://[::]:8546
+t=2023-08-04T16:58:27+0800 lvl=info msg="Generated state snapshot"               accounts=8893 slots=0 storage="409.64 KiB" elapsed=102.337ms
+t=2023-08-04T16:58:32+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:37+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:37+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:38+0800 lvl=info msg="Looking for peers"                      peercount=0 tried=0 static=0
+t=2023-08-04T16:58:42+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:47+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:47+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:52+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:57+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:58:57+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:02+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:04+0800 lvl=info msg="Looking for peers"                      peercount=0 tried=3 static=0
+t=2023-08-04T16:59:07+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:07+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:12+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:17+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:17+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:22+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:27+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:27+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:32+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:37+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:37+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:42+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:47+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:47+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:52+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:57+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T16:59:57+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"

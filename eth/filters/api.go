@@ -21,7 +21,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
 	"math/big"
 	"sync"
 	"time"
@@ -139,8 +138,9 @@ func (api *PublicFilterAPI) NewPendingTransactionFilter(fullTx *bool) rpc.ID {
 	return pendingTxSub.ID
 }
 
-// NewPendingTransactions creates a subscription that is triggered each time a transaction
-// enters the transaction pool and was signed from one of the transactions this nodes manages.
+// NewPendingTransactions creates a subscription that is triggered each time a
+// transaction enters the transaction pool. If fullTx is true the full tx is
+// sent to the client, otherwise the hash is sent.
 func (api *PublicFilterAPI) NewPendingTransactions(ctx context.Context, fullTx *bool) (*rpc.Subscription, error) {
 	notifier, supported := rpc.NotifierFromContext(ctx)
 	if !supported {
@@ -153,9 +153,6 @@ func (api *PublicFilterAPI) NewPendingTransactions(ctx context.Context, fullTx *
 		txs := make(chan []*types.Transaction, 128)
 		pendingTxSub := api.events.SubscribePendingTxs(txs)
 
-		chainConfig := api.backend.ChainConfig()
-		latest := api.backend.CurrentHeader()
-
 		for {
 			select {
 			case txs := <-txs:
@@ -163,8 +160,7 @@ func (api *PublicFilterAPI) NewPendingTransactions(ctx context.Context, fullTx *
 				// TODO(rjl493456442) Send a batch of tx hashes in one notification
 				for _, tx := range txs {
 					if fullTx != nil && *fullTx {
-						rpcTx := ethapi.NewRPCPendingTransaction(tx, latest, chainConfig)
-						notifier.Notify(rpcSub.ID, rpcTx)
+						notifier.Notify(rpcSub.ID, tx)
 					} else {
 						notifier.Notify(rpcSub.ID, tx.Hash())
 					}
@@ -553,9 +549,6 @@ func (api *PublicFilterAPI) GetFilterChanges(id rpc.ID) (interface{}, error) {
 	api.filtersMu.Lock()
 	defer api.filtersMu.Unlock()
 
-	chainConfig := api.backend.ChainConfig()
-	latest := api.backend.CurrentHeader()
-
 	if f, found := api.filters[id]; found {
 		if !f.deadline.Stop() {
 			// timer expired but filter is not yet removed in timeout loop
@@ -565,26 +558,14 @@ func (api *PublicFilterAPI) GetFilterChanges(id rpc.ID) (interface{}, error) {
 		f.deadline.Reset(api.timeout)
 
 		switch f.typ {
-		case BlocksSubscription:
+		case BlocksSubscription, FinalizedHeadersSubscription, VotesSubscription:
 			hashes := f.hashes
 			f.hashes = nil
 			return returnHashes(hashes), nil
 		case PendingTransactionsSubscription:
-			if f.fullTx {
-				txs := make([]*ethapi.RPCTransaction, 0, len(f.txs))
-				for _, tx := range f.txs {
-					txs = append(txs, ethapi.NewRPCPendingTransaction(tx, latest, chainConfig))
-				}
-				f.txs = nil
-				return txs, nil
-			} else {
-				hashes := make([]common.Hash, 0, len(f.txs))
-				for _, tx := range f.txs {
-					hashes = append(hashes, tx.Hash())
-				}
-				f.txs = nil
-				return hashes, nil
-			}
+			txs := f.txs
+			f.txs = nil
+			return txs, nil
 		case LogsSubscription, MinedAndPendingLogsSubscription:
 			logs := f.logs
 			f.logs = nil

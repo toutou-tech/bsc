@@ -1,0 +1,194 @@
+t=2023-08-04T17:00:02+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:07+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:07+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:12+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:17+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:17+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:22+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:27+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:27+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:32+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:37+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:37+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:42+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:47+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:47+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:52+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:57+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:00:57+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:02+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:07+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:07+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:12+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:17+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:17+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:22+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:27+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:27+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:32+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:37+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:37+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:42+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:47+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:47+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:52+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:57+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:01:57+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:02+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:07+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:07+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:12+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:17+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:17+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:22+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:22+0800 lvl=info msg="Got interrupt, shutting down..."
+t=2023-08-04T17:02:22+0800 lvl=warn msg="HTTP server graceful shutdown timed out"
+t=2023-08-04T17:02:22+0800 lvl=info msg="HTTP server stopped"                    endpoint=[::]:8545
+t=2023-08-04T17:02:22+0800 lvl=warn msg="HTTP server graceful shutdown timed out"
+t=2023-08-04T17:02:22+0800 lvl=info msg="HTTP server stopped"                    endpoint=[::]:8546
+t=2023-08-04T17:02:22+0800 lvl=info msg="IPC endpoint closed"                    url=/Users/liulc/go/src/github.com/bsc/ethereum/geth.ipc
+t=2023-08-04T17:02:22+0800 lvl=info msg="Ethereum protocol stopped"
+t=2023-08-04T17:02:22+0800 lvl=info msg="Transaction pool stopped"
+t=2023-08-04T17:02:22+0800 lvl=info msg="Writing snapshot state to disk"         root=0xd7f8974fb5ac78d9ac099b9ad5018bedc2ce0a72dad1827a1709da30580f0544
+t=2023-08-04T17:02:22+0800 lvl=info msg="Persisted trie from memory database"    nodes=0     size="0.00 B"   time="6.108µs"   gcnodes=0 gcsize="0.00 B" gctime=0s livenodes=1 livesize="0.00 B"
+t=2023-08-04T17:02:22+0800 lvl=info msg="Writing clean trie cache to disk"       path=/Users/liulc/go/src/github.com/bsc/ethereum/geth/triecache threads=4
+t=2023-08-04T17:02:22+0800 lvl=info msg="Persisted the clean trie cache"         path=/Users/liulc/go/src/github.com/bsc/ethereum/geth/triecache elapsed=37.440ms
+t=2023-08-04T17:02:22+0800 lvl=info msg="Blockchain stopped"
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Sanitizing cache to Go's GC limits" provided=8000 updated=2730
+t=2023-08-04T17:02:39+0800 lvl=info msg="Set global gas cap"                 cap=50,000,000
+t=2023-08-04T17:02:39+0800 lvl=info msg="Allocated trie memory caches"       clean="409.00 MiB" dirty="682.00 MiB"
+t=2023-08-04T17:02:39+0800 lvl=info msg="Allocated cache and file handles"   database=/Users/liulc/go/src/github.com/bsc/ethereum/geth/chaindata cache="1.07 GiB" handles=5120
+t=2023-08-04T17:02:39+0800 lvl=info msg="Read ancientdb item counts"         items=0
+t=2023-08-04T17:02:39+0800 lvl=info msg="Opened ancientdb with nodata mode"  database=/Users/liulc/go/src/github.com/bsc/ethereum/geth/chaindata/ancient frozen=0
+t=2023-08-04T17:02:39+0800 lvl=info msg="Initialised chain configuration"    config="{ChainID: 1 Homestead: 1150000 DAO: 1920000 DAOSupport: true EIP150: 2463000 EIP155: 2675000 EIP158: 2675000 Byzantium: 4370000 Constantinople: 7280000 Petersburg: 7280000 Istanbul: 9069000, Muir Glacier: 9200000, Ramanujan: 0, Niels: 0, MirrorSync: 0, Bruno: 0, Berlin: 12244000, YOLO v3: <nil>, CatalystBlock: <nil>, London: 12965000, ArrowGlacier: 13773000, MergeFork:<nil>, Euler: 0, Gibbs: <nil>, Nano: <nil>, Moran: <nil>, Planck: <nil>,Luban: <nil>, Plato: <nil>, Hertz: <nil>, Engine: ethash}"
+t=2023-08-04T17:02:39+0800 lvl=info msg="Unprotected transactions allowed"
+t=2023-08-04T17:02:39+0800 lvl=info msg="Disk storage enabled for ethash caches" dir=/Users/liulc/go/src/github.com/bsc/ethereum/geth/ethash count=3
+t=2023-08-04T17:02:39+0800 lvl=info msg="Disk storage enabled for ethash DAGs"   dir=/Users/liulc/Library/Ethash count=2
+t=2023-08-04T17:02:39+0800 lvl=info msg="Initialising Ethereum protocol"         network=56 dbversion=8
+t=2023-08-04T17:02:39+0800 lvl=info msg="Loaded most recent local header"        number=0 hash=0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3 td=17,179,869,184 age=54y4mo1w
+t=2023-08-04T17:02:39+0800 lvl=info msg="Loaded most recent local full block"    number=0 hash=0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3 td=17,179,869,184 age=54y4mo1w
+t=2023-08-04T17:02:39+0800 lvl=info msg="Loaded most recent local fast block"    number=0 hash=0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3 td=17,179,869,184 age=54y4mo1w
+t=2023-08-04T17:02:39+0800 lvl=info msg="Snapshot loaded"                        diskRoot=0xd7f8974fb5ac78d9ac099b9ad5018bedc2ce0a72dad1827a1709da30580f0544 root=0xd7f8974fb5ac78d9ac099b9ad5018bedc2ce0a72dad1827a1709da30580f0544
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Sanitizing invalid txpool reannounce time" provided=0s   updated=1m0s
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Sanitizing invalid gasprice oracle price cap" provided=<nil> updated=100,000,000,000
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Sanitizing invalid gasprice oracle ignore price" provided=<nil> updated=4
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Sanitizing invalid gasprice oracle max header history" provided=0     updated=1
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Sanitizing invalid gasprice oracle max block history" provided=0     updated=1
+t=2023-08-04T17:02:39+0800 lvl=warn msg="Subscribe for vote or finalized header event failed"
+t=2023-08-04T17:02:39+0800 lvl=info msg="Enabling metrics collection"
+t=2023-08-04T17:02:39+0800 lvl=info msg="Enabling metrics export to InfluxDB"
+t=2023-08-04T17:02:39+0800 lvl=info msg="Enabling stand-alone metrics HTTP endpoint" address=0.0.0.0:6060
+t=2023-08-04T17:02:39+0800 lvl=info msg="Starting metrics server"                addr=http://0.0.0.0:6060/debug/metrics
+t=2023-08-04T17:02:39+0800 lvl=info msg="Starting peer-to-peer node"             instance=Geth/v1.2.10-22ff00ec/darwin-amd64/go1.19.5
+t=2023-08-04T17:02:40+0800 lvl=info msg="New local node record"                  seq=1,691,139,507,600 id=a3285a97a5bac1e08c29c7dbf84ba16e946244896445e424d2bfb06455f8e3de ip=127.0.0.1 udp=30311 tcp=30311
+t=2023-08-04T17:02:40+0800 lvl=info msg="Started P2P networking"                 self=enode://c62262d01e4d6c20e63a3a7ffebf8953efde8f3a19ca6e7dae1a13300fbe40dcd460f064c6387cbe0037f4b4347d874b19e46be72908743159578f30a5c6524d@127.0.0.1:30311
+t=2023-08-04T17:02:40+0800 lvl=info msg="IPC endpoint opened"                    url=/Users/liulc/go/src/github.com/bsc/ethereum/geth.ipc
+t=2023-08-04T17:02:40+0800 lvl=eror msg="Unavailable modules in HTTP API list"   unavailable=[parlia] available="[admin debug web3 eth txpool personal ethash miner net]"
+t=2023-08-04T17:02:40+0800 lvl=info msg="HTTP server started"                    endpoint=[::]:8545 prefix= cors= vhosts=*
+t=2023-08-04T17:02:40+0800 lvl=info msg="WebSocket enabled"                      url=ws://[::]:8546
+t=2023-08-04T17:02:44+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:49+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:49+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:50+0800 lvl=info msg="Looking for peers"                      peercount=0 tried=1 static=0
+t=2023-08-04T17:02:54+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:59+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:02:59+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:00+0800 lvl=info msg="Looking for peers"                      peercount=0 tried=2 static=0
+t=2023-08-04T17:03:04+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:09+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:09+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:14+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:16+0800 lvl=info msg="Looking for peers"                      peercount=0 tried=0 static=0
+t=2023-08-04T17:03:19+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:19+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:24+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:29+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:29+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:34+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:39+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:39+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:44+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:49+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:49+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:54+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:59+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:03:59+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:04+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:09+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:09+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:14+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:19+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:19+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:24+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:29+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:29+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:34+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:39+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:39+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:44+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:49+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:49+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:54+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:59+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:04:59+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:04+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:09+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:09+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:14+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:19+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:19+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:24+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:29+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:29+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:34+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:39+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:39+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:44+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:49+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:49+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:54+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:59+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:05:59+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:04+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:09+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:09+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:14+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:19+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:19+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:24+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:29+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:29+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:34+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:39+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:39+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:44+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:49+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:49+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:54+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:59+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:06:59+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:04+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:09+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:09+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:14+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:19+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:19+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:24+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:29+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:29+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:34+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:39+0800 lvl=warn msg="Unable to send to InfluxDB"             err="Post \"http://0.0.0.0:8086/write?consistency=&db=geth&precision=&rp=\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:39+0800 lvl=warn msg="Got error while sending a ping to InfluxDB, trying to recreate client" err="Get \"http://0.0.0.0:8086/ping\": dial tcp 0.0.0.0:8086: connect: connection refused"
+t=2023-08-04T17:07:44+0800 lvl=info msg="Got interrupt, shutting down..."
+t=2023-08-04T17:07:44+0800 lvl=warn msg="HTTP server graceful shutdown timed out"
+t=2023-08-04T17:07:44+0800 lvl=info msg="HTTP server stopped"                    endpoint=[::]:8545
+t=2023-08-04T17:07:44+0800 lvl=warn msg="HTTP server graceful shutdown timed out"
+t=2023-08-04T17:07:44+0800 lvl=info msg="HTTP server stopped"                    endpoint=[::]:8546
+t=2023-08-04T17:07:44+0800 lvl=info msg="IPC endpoint closed"                    url=/Users/liulc/go/src/github.com/bsc/ethereum/geth.ipc
+t=2023-08-04T17:07:44+0800 lvl=info msg="Ethereum protocol stopped"
+t=2023-08-04T17:07:44+0800 lvl=info msg="Transaction pool stopped"
+t=2023-08-04T17:07:44+0800 lvl=info msg="Writing snapshot state to disk"         root=0xd7f8974fb5ac78d9ac099b9ad5018bedc2ce0a72dad1827a1709da30580f0544
+t=2023-08-04T17:07:44+0800 lvl=info msg="Persisted trie from memory database"    nodes=0 size="0.00 B" time="4.264µs" gcnodes=0 gcsize="0.00 B" gctime=0s livenodes=1 livesize="0.00 B"
+t=2023-08-04T17:07:44+0800 lvl=info msg="Writing clean trie cache to disk"       path=/Users/liulc/go/src/github.com/bsc/ethereum/geth/triecache threads=4
+t=2023-08-04T17:07:44+0800 lvl=info msg="Persisted the clean trie cache"         path=/Users/liulc/go/src/github.com/bsc/ethereum/geth/triecache elapsed=17.821ms
+t=2023-08-04T17:07:44+0800 lvl=info msg="Blockchain stopped"
