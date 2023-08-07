@@ -2752,7 +2752,7 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 
 		receipt, result, err := core.ApplyTransactionWithResult(s.b.ChainConfig(), s.chain, &coinbase, gp, state, header, tx, &header.GasUsed, vmconfig)
 		if err != nil {
-			return nil, fmt.Errorf("err: %w; txhash %s", err, tx.Hash())
+			return nil, fmt.Errorf("err: %w; stateBlockNumber %d, stateBlockHash %s, txhash %s", err, parent.Number.Int64(), parent.Hash(), tx.Hash());
 		}
 
 		txHash := tx.Hash().String()
@@ -2778,7 +2778,12 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 			jsonResult["error"] = result.Err.Error()
 			revert := result.Revert()
 			if len(revert) > 0 {
-				jsonResult["revert"] = string(revert)
+				reason, errUnpack := abi.UnpackRevert(revert)
+				if errUnpack == nil {
+					jsonResult["revert"] = reason
+				} else {
+					jsonResult["revert"] = hexutil.Encode(revert)
+				}
 			}
 		} else {
 			dst := make([]byte, hex.EncodedLen(len(result.Return())))
