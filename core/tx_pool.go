@@ -302,6 +302,7 @@ func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain block
 	config = (&config).sanitize()
 
 	txpoolLog := log.New()
+	log.SetTimeFormat("2006-01-02T15:04:05.999999-0700")
 	sh, err := log.RotatingFileHandler("./logs/txpool.log", uint(1024*1024*256), log.LogfmtFormat(), int(6))
 	if err != nil {
 		log.Warn("new log.RotatingFileHandler", "err", err)
@@ -709,7 +710,7 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 			sum.Sub(sum, repl.Cost())
 		}
 		if balance.Cmp(sum) < 0 {
-			log.Trace("Replacing transactions would overdraft", "sender", from, "balance", pool.currentState.GetBalance(from), "required", sum)
+			pool.txpoolLog.Info("Replacing transactions would overdraft", "sender", from, "balance", pool.currentState.GetBalance(from), "required", sum)
 			return ErrOverdraft
 		}
 	}
