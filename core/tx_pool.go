@@ -288,6 +288,7 @@ type TxPool struct {
 	initDoneCh      chan struct{}  // is closed once the pool is initialized (for tests)
 
 	changesSinceReorg int // A counter for how many drops we've performed in-between reorg.
+	txpoolLog         log.Logger
 }
 
 type txpoolResetRequest struct {
@@ -299,6 +300,13 @@ type txpoolResetRequest struct {
 func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain blockChain) *TxPool {
 	// Sanitize the input to ensure no vulnerable gas prices are set
 	config = (&config).sanitize()
+
+	txpoolLog := log.New()
+	sh, err := log.RotatingFileHandler("./logs/txpool.log", uint(1024*1024*256), log.LogfmtFormat(), int(6))
+	if err != nil {
+		log.Warn("new log.RotatingFileHandler", "err", err)
+	}
+	txpoolLog.SetHandler(sh)
 
 	// Create the transaction pool with its initial settings
 	pool := &TxPool{
@@ -318,6 +326,7 @@ func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain block
 		reorgShutdownCh: make(chan struct{}),
 		initDoneCh:      make(chan struct{}),
 		gasPrice:        new(big.Int).SetUint64(config.PriceLimit),
+		txpoolLog:       txpoolLog,
 	}
 	pool.locals = newAccountSet(pool.signer)
 	for _, addr := range config.Locals {
@@ -726,6 +735,9 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 func (pool *TxPool) add(tx *types.Transaction, local bool) (replaced bool, err error) {
 	// If the transaction is already known, discard it
 	hash := tx.Hash()
+
+	pool.txpoolLog.Info("add tx", "hash", hash)
+
 	if pool.all.Get(hash) != nil {
 		log.Trace("Discarding already known transaction", "hash", hash)
 		knownTxMeter.Mark(1)
@@ -738,6 +750,7 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (replaced bool, err e
 	// If the transaction fails basic validation, discard it
 	if err := pool.validateTx(tx, isLocal); err != nil {
 		log.Trace("Discarding invalid transaction", "hash", hash, "err", err)
+		pool.txpoolLog.Info("invalid tx", "hash", hash, "err", err)
 		invalidTxMeter.Mark(1)
 		return false, err
 	}
