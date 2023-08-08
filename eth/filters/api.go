@@ -153,7 +153,10 @@ func (api *PublicFilterAPI) NewPendingTransactions(ctx context.Context, fullTx *
 	gopool.Submit(func() {
 		txs := make(chan []*types.Transaction, 128)
 		pendingTxSub := api.events.SubscribePendingTxs(txs)
-		
+
+		chainConfig := api.backend.ChainConfig()
+		latest := api.backend.CurrentHeader()
+
 		for {
 			select {
 			case txs := <-txs:
@@ -161,7 +164,8 @@ func (api *PublicFilterAPI) NewPendingTransactions(ctx context.Context, fullTx *
 				// TODO(rjl493456442) Send a batch of tx hashes in one notification
 				for _, tx := range txs {
 					if fullTx != nil && *fullTx {
-						notifier.Notify(rpcSub.ID, tx)
+						rpcTx := ethapi.NewRPCPendingTransaction(tx, latest, chainConfig)
+						notifier.Notify(rpcSub.ID, rpcTx)
 					} else {
 						notifier.Notify(rpcSub.ID, tx.Hash())
 					}
