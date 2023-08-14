@@ -1,6 +1,4 @@
-// Copyright 2014 The go-ethereum Authors
-// This file is part of the go-ethereum library.
-//
+// Copyright 2014 The go-ethereum Authors // This file is part of the go-ethereum library.  //
 // The go-ethereum library is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -737,8 +735,6 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (replaced bool, err e
 	// If the transaction is already known, discard it
 	hash := tx.Hash()
 
-	pool.txpoolLog.Info("add tx", "hash", hash)
-
 	if pool.all.Get(hash) != nil {
 		log.Trace("Discarding already known transaction", "hash", hash)
 		knownTxMeter.Mark(1)
@@ -751,7 +747,6 @@ func (pool *TxPool) add(tx *types.Transaction, local bool) (replaced bool, err e
 	// If the transaction fails basic validation, discard it
 	if err := pool.validateTx(tx, isLocal); err != nil {
 		log.Trace("Discarding invalid transaction", "hash", hash, "err", err)
-		pool.txpoolLog.Info("invalid tx", "hash", hash, "err", err)
 		invalidTxMeter.Mark(1)
 		return false, err
 	}
@@ -1076,7 +1071,10 @@ func (pool *TxPool) addTxsLocked(txs []*types.Transaction, local bool) ([]error,
 	dirty := newAccountSet(pool.signer)
 	errs := make([]error, len(txs))
 	for i, tx := range txs {
+		before := time.Now().UnixNano()
 		replaced, err := pool.add(tx, local)
+		adddiff := time.Now().UnixNano() - before
+		pool.txpoolLog.Info("add tx", "adddiff", adddiff, "hash", tx.Hash(), "replaced", replaced, "err", err)
 		errs[i] = err
 		if err == nil && !replaced {
 			dirty.addTx(tx)
