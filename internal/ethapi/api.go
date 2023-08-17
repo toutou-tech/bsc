@@ -969,6 +969,7 @@ func (diff *StateOverride) Apply(state *state.StateDB) error {
 	return nil
 }
 
+// BlockOverrides is a set of header fields to override.
 type BlockOverrides struct {
 	Number     *hexutil.Big
 	Difficulty *hexutil.Big
