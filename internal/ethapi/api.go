@@ -973,7 +973,7 @@ func (diff *StateOverride) Apply(state *state.StateDB) error {
 type BlockOverrides struct {
 	Number     *hexutil.Big
 	Difficulty *hexutil.Big
-	Time       *hexutil.Uint64
+	Time       *hexutil.Big
 	GasLimit   *hexutil.Uint64
 	Coinbase   *common.Address
 	Random     *common.Hash
@@ -992,7 +992,7 @@ func (diff *BlockOverrides) Apply(blockCtx *vm.BlockContext) {
 		blockCtx.Difficulty = diff.Difficulty.ToInt()
 	}
 	if diff.Time != nil {
-		blockCtx.Time = uint64(*diff.Time)
+		blockCtx.Time = diff.Time.ToInt()
 	}
 	if diff.GasLimit != nil {
 		blockCtx.GasLimit = uint64(*diff.GasLimit)
