@@ -969,6 +969,40 @@ func (diff *StateOverride) Apply(state *state.StateDB) error {
 	return nil
 }
 
+type BlockOverrides struct {
+	Number     *hexutil.Big
+	Difficulty *hexutil.Big
+	Time       *hexutil.Big
+	GasLimit   *hexutil.Uint64
+	Coinbase   *common.Address
+	Random     *common.Hash
+}
+
+// Apply overrides the given header fields into the given block context.
+func (diff *BlockOverrides) Apply(blockCtx *vm.BlockContext) {
+	if diff == nil {
+		return
+	}
+	if diff.Number != nil {
+		blockCtx.BlockNumber = diff.Number.ToInt()
+	}
+	if diff.Difficulty != nil {
+		blockCtx.Difficulty = diff.Difficulty.ToInt()
+	}
+	if diff.Time != nil {
+		blockCtx.Time = diff.Time.ToInt()
+	}
+	if diff.GasLimit != nil {
+		blockCtx.GasLimit = uint64(*diff.GasLimit)
+	}
+	if diff.Coinbase != nil {
+		blockCtx.Coinbase = *diff.Coinbase
+	}
+	if diff.Random != nil {
+		blockCtx.Random = diff.Random
+	}
+}
+
 func DoCall(ctx context.Context, b Backend, args TransactionArgs, blockNrOrHash rpc.BlockNumberOrHash, overrides *StateOverride, timeout time.Duration, globalGasCap uint64) (*core.ExecutionResult, error) {
 	defer func(start time.Time) { log.Debug("Executing EVM call finished", "runtime", time.Since(start)) }(time.Now())
 
@@ -2751,7 +2785,7 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 
 		receipt, result, err := core.ApplyTransactionWithResult(s.b.ChainConfig(), s.chain, &coinbase, gp, state, header, tx, &header.GasUsed, vmconfig)
 		if err != nil {
-			return nil, fmt.Errorf("err: %w; stateBlockNumber %d, stateBlockHash %s, txhash %s", err, parent.Number.Int64(), parent.Hash(), tx.Hash());
+			return nil, fmt.Errorf("err: %w; stateBlockNumber %d, stateBlockHash %s, txhash %s", err, parent.Number.Int64(), parent.Hash(), tx.Hash())
 		}
 
 		txHash := tx.Hash().String()
