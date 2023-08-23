@@ -857,7 +857,7 @@ func (api *API) TraceCall(ctx context.Context, args ethapi.TransactionArgs, bloc
 			// more flexibility and stability than trying to trace on 'pending', since
 			// the contents of 'pending' is unstable and probably not a true representation
 			// of what the next actual block is likely to contain.
-			return nil, errors.New("tracing on top of pending is not supported")
+			//return nil, errors.New("tracing on top of pending is not supported")
 		}
 		block, err = api.blockByNumber(ctx, number)
 	} else {
