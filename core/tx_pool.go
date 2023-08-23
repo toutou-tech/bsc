@@ -186,7 +186,7 @@ var DefaultTxPoolConfig = TxPoolConfig{
 	Rejournal: time.Hour,
 
 	PriceLimit: 1,
-	PriceBump:  10,
+	PriceBump:  0,
 
 	AccountSlots: 16,
 	GlobalSlots:  4096 + 1024, // urgent + floating queue capacity with 4:1 ratio
