@@ -24,6 +24,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"math"
 	"math/big"
 	"os"
 	"runtime"
@@ -176,6 +177,8 @@ type TraceConfig struct {
 	// Config specific to given tracer. Note struct logger
 	// config are historically embedded in main object.
 	TracerConfig json.RawMessage
+
+	StateOverrides *ethapi.StateOverrides
 }
 
 // TraceCallConfig is the config for traceCall API. It holds one more
@@ -894,6 +897,173 @@ func (api *API) TraceCall(ctx context.Context, args ethapi.TransactionArgs, bloc
 		traceConfig = &config.TraceConfig
 	}
 	return api.traceTx(ctx, msg, new(Context), vmctx, statedb, traceConfig)
+}
+
+func (api *API) TraceCallMany(ctx context.Context, bundles []ethapi.Bundle, simulateContext ethapi.StateContext, config *TraceConfig) (interface{}, error) {
+	var (
+		replayTransactions types.Transactions
+		evm                *vm.EVM
+		blockCtx           vm.BlockContext
+		txCtx              vm.TxContext
+		overrideBlockHash  map[uint64]common.Hash
+		err                error
+		block              *types.Block
+	)
+
+	if config == nil {
+		config = &TraceConfig{}
+	}
+
+	overrideBlockHash = make(map[uint64]common.Hash)
+
+	chainConfig := api.backend.ChainConfig()
+
+	if len(bundles) == 0 {
+		return nil, fmt.Errorf("empty bundles")
+	}
+	empty := true
+	for _, bundle := range bundles {
+		if len(bundle.Transactions) != 0 {
+			empty = false
+		}
+	}
+
+	if empty {
+		return nil, fmt.Errorf("empty bundles")
+	}
+
+	defer func(start time.Time) { log.Trace("Tracing CallMany finished", "runtime", time.Since(start)) }(time.Now())
+
+	if hash, ok := simulateContext.BlockNumber.Hash(); ok {
+		block, err = api.blockByHash(ctx, hash)
+	} else if number, ok := simulateContext.BlockNumber.Number(); ok {
+		if number == rpc.PendingBlockNumber {
+			// We don't have access to the miner here. For tracing 'future' transactions,
+			// it can be done with block- and state-overrides instead, which offers
+			// more flexibility and stability than trying to trace on 'pending', since
+			// the contents of 'pending' is unstable and probably not a true representation
+			// of what the next actual block is likely to contain.
+			return nil, errors.New("tracing on top of pending is not supported")
+		}
+		block, err = api.blockByNumber(ctx, number)
+	} else {
+		return nil, errors.New("invalid arguments; neither block nor hash specified")
+	}
+
+	// -1 is a default value for transaction index.
+	// If it's -1, we will try to replay every single transaction in that block
+	transactionIndex := -1
+
+	if simulateContext.TransactionIndex != nil {
+		transactionIndex = *simulateContext.TransactionIndex
+	}
+
+	if transactionIndex == -1 {
+		transactionIndex = len(block.Transactions())
+	}
+
+	replayTransactions = block.Transactions()[:transactionIndex]
+
+	// try to recompute the state
+	reexec := defaultTraceReexec
+	if config != nil && config.Reexec != nil {
+		reexec = *config.Reexec
+	}
+	statedb, err := api.backend.StateAtBlock(ctx, block, reexec, nil, true, false)
+	if err != nil {
+		return nil, err
+	}
+
+	vmctx := core.NewEVMBlockContext(block.Header(), api.chainContext(ctx), nil)
+	parent := block.Header()
+
+	if parent == nil {
+		return nil, fmt.Errorf("block %d(%x) not found", block.Number(), block.Hash())
+	}
+
+	getHash := func(i uint64) common.Hash {
+		if hash, ok := overrideBlockHash[i]; ok {
+			return hash
+		}
+		hash := rawdb.ReadCanonicalHash(api.backend.ChainDb(), i)
+		return hash
+	}
+
+	blockCtx = vm.BlockContext{
+		CanTransfer: core.CanTransfer,
+		Transfer:    core.Transfer,
+		GetHash:     getHash,
+		Coinbase:    parent.Coinbase,
+		BlockNumber: parent.Number,
+		Time:        big.NewInt(int64(parent.Time)),
+		Difficulty:  new(big.Int).Set(parent.Difficulty),
+		GasLimit:    parent.GasLimit,
+		BaseFee:     parent.BaseFee,
+	}
+
+	// Get a new instance of the EVM
+	evm = vm.NewEVM(blockCtx, txCtx, statedb, chainConfig, vm.Config{Debug: false})
+	signer := types.MakeSigner(chainConfig, block.Number())
+
+	//rules := chainConfig.Rules(block.Number(), blockCtx.Random != nil)
+
+	// Setup the gas pool (also for unmetered requests)
+	// and apply the message.
+	gp := new(core.GasPool).AddGas(math.MaxUint64)
+	for idx, txn := range replayTransactions {
+		statedb.Prepare(txn.Hash(), idx)
+		msg, err := txn.AsMessage(signer, block.BaseFee())
+		if err != nil {
+			return nil, err
+		}
+		txCtx = core.NewEVMTxContext(msg)
+		evm = vm.NewEVM(blockCtx, txCtx, statedb, chainConfig, vm.Config{Debug: false})
+		// Execute the transaction message
+		_, err = core.ApplyMessage(evm, msg, gp)
+		if err != nil {
+			return nil, err
+		}
+		//todo
+		//_ = st.FinalizeTx(rules, state.NewNoopWriter())
+	}
+
+	// after replaying the txns, we want to overload the state
+	if config.StateOverrides != nil {
+		err = config.StateOverrides.Override(statedb)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	var res []interface{}
+	for _, bundle := range bundles {
+		// first change blockContext
+		bundle.BlockOverride.BlockHeaderOverride(&blockCtx, overrideBlockHash)
+		for txn_index, txn := range bundle.Transactions {
+			if txn.Gas == nil || *(txn.Gas) == 0 {
+				gsgcap := api.backend.RPCGasCap()
+				txn.Gas = (*hexutil.Uint64)(&gsgcap)
+			}
+			msg, err := txn.ToMessage(api.backend.RPCGasCap(), blockCtx.BaseFee)
+			if err != nil {
+				return nil, err
+			}
+			txCtx = core.NewEVMTxContext(msg)
+			ibs := statedb
+			ibs.Prepare(common.Hash{}, txn_index)
+			tx, err := api.traceTx(ctx, msg, new(Context), vmctx, statedb, config)
+			if err != nil {
+				return nil, err
+			}
+			res = append(res, tx)
+			//todo
+			//_ = ibs.FinalizeTx(rules, state.NewNoopWriter())
+		}
+
+		blockCtx.BlockNumber.Add(blockCtx.BlockNumber, big.NewInt(1))
+		blockCtx.Time.Add(blockCtx.Time, big.NewInt(1))
+	}
+	return nil, nil
 }
 
 // traceTx configures a new tracer according to the provided configuration, and

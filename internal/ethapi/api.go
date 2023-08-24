@@ -978,6 +978,17 @@ type BlockOverrides struct {
 	Coinbase   *common.Address
 	Random     *common.Hash
 	BaseFee    *hexutil.Big
+	BlockHash  *map[uint64]common.Hash
+}
+
+type Bundle struct {
+	Transactions  []TransactionArgs
+	BlockOverride BlockOverrides
+}
+
+type StateContext struct {
+	BlockNumber      rpc.BlockNumberOrHash
+	TransactionIndex *int
 }
 
 // Apply overrides the given header fields into the given block context.
@@ -1005,6 +1016,32 @@ func (diff *BlockOverrides) Apply(blockCtx *vm.BlockContext) {
 	}
 	if diff.BaseFee != nil {
 		blockCtx.BaseFee = diff.BaseFee.ToInt()
+	}
+}
+
+func (diff *BlockOverrides) BlockHeaderOverride(blockCtx *vm.BlockContext, overrideBlockHash map[uint64]common.Hash) {
+	if diff.Number != nil {
+		blockCtx.BlockNumber = diff.Number.ToInt()
+	}
+	if diff.BaseFee != nil {
+		blockCtx.BaseFee = diff.BaseFee.ToInt()
+	}
+	if diff.Coinbase != nil {
+		blockCtx.Coinbase = *diff.Coinbase
+	}
+	if diff.Difficulty != nil {
+		blockCtx.Difficulty = diff.Difficulty.ToInt()
+	}
+	if diff.Time != nil {
+		blockCtx.Time = diff.Time.ToInt()
+	}
+	if diff.GasLimit != nil {
+		blockCtx.GasLimit = uint64(*diff.GasLimit)
+	}
+	if diff.BlockHash != nil {
+		for blockNum, hash := range *diff.BlockHash {
+			overrideBlockHash[blockNum] = hash
+		}
 	}
 }
 
