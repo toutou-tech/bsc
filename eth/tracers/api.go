@@ -178,7 +178,7 @@ type TraceConfig struct {
 	// config are historically embedded in main object.
 	TracerConfig json.RawMessage
 
-	StateOverrides *ethapi.StateOverrides
+	StateOverrides *ethapi.StateOverride
 }
 
 // TraceCallConfig is the config for traceCall API. It holds one more
