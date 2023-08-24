@@ -1029,7 +1029,7 @@ func (api *API) TraceCallMany(ctx context.Context, bundles []ethapi.Bundle, simu
 
 	// after replaying the txns, we want to overload the state
 	if config.StateOverrides != nil {
-		err = config.StateOverrides.Override(statedb)
+		err = config.StateOverrides.Apply(statedb)
 		if err != nil {
 			return nil, err
 		}
