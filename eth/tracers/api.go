@@ -24,7 +24,6 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"math"
 	"math/big"
 	"os"
 	"runtime"
@@ -967,9 +966,7 @@ func (api *API) TraceCallMany(ctx context.Context, txs []ethapi.TransactionArgs,
 func (api *API) TraceCallMany1(ctx context.Context, bundles []ethapi.Bundle, simulateContext ethapi.StateContext, config *TraceConfig) (interface{}, error) {
 	var (
 		replayTransactions types.Transactions
-		evm                *vm.EVM
 		blockCtx           vm.BlockContext
-		txCtx              vm.TxContext
 		overrideBlockHash  map[uint64]common.Hash
 		err                error
 		block              *types.Block
@@ -1058,28 +1055,17 @@ func (api *API) TraceCallMany1(ctx context.Context, bundles []ethapi.Bundle, sim
 		BaseFee:     parent.BaseFee,
 	}
 
-	// Get a new instance of the EVM
-	evm = vm.NewEVM(blockCtx, txCtx, statedb, chainConfig, vm.Config{Debug: false})
 	signer := types.MakeSigner(chainConfig, block.Number())
 
 	//rules := chainConfig.Rules(block.Number(), blockCtx.Random != nil)
 
-	// Setup the gas pool (also for unmetered requests)
-	// and apply the message.
-	gp := new(core.GasPool).AddGas(math.MaxUint64)
 	for idx, txn := range replayTransactions {
 		statedb.Prepare(txn.Hash(), idx)
 		msg, err := txn.AsMessageNoNonceCheck(signer)
 		if err != nil {
 			return nil, err
 		}
-		txCtx = core.NewEVMTxContext(msg)
-		evm = vm.NewEVM(blockCtx, txCtx, statedb, chainConfig, vm.Config{Debug: false})
-		// Execute the transaction message
-		_, err = core.ApplyMessage(evm, msg, gp)
-		if err != nil {
-			return nil, err
-		}
+		api.traceTx(ctx, msg, new(Context), vmctx, statedb, config)
 		//todo
 		//_ = st.FinalizeTx(rules, state.NewNoopWriter())
 	}
@@ -1096,7 +1082,7 @@ func (api *API) TraceCallMany1(ctx context.Context, bundles []ethapi.Bundle, sim
 	for _, bundle := range bundles {
 		// first change blockContext
 		bundle.BlockOverride.BlockHeaderOverride(&blockCtx, overrideBlockHash)
-		for txn_index, txn := range bundle.Transactions {
+		for _, txn := range bundle.Transactions {
 			if txn.Gas == nil || *(txn.Gas) == 0 {
 				gsgcap := api.backend.RPCGasCap()
 				txn.Gas = (*hexutil.Uint64)(&gsgcap)
@@ -1105,9 +1091,6 @@ func (api *API) TraceCallMany1(ctx context.Context, bundles []ethapi.Bundle, sim
 			if err != nil {
 				return nil, err
 			}
-			txCtx = core.NewEVMTxContext(msg)
-			ibs := statedb
-			ibs.Prepare(common.Hash{}, txn_index)
 			tx, err := api.traceTx(ctx, msg, new(Context), vmctx, statedb, config)
 			if err != nil {
 				return nil, err
