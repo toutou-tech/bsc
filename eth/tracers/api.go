@@ -1063,7 +1063,7 @@ func (api *API) TraceCallMany(ctx context.Context, bundles []ethapi.Bundle, simu
 		blockCtx.BlockNumber.Add(blockCtx.BlockNumber, big.NewInt(1))
 		blockCtx.Time.Add(blockCtx.Time, big.NewInt(1))
 	}
-	return nil, nil
+	return res, nil
 }
 
 // traceTx configures a new tracer according to the provided configuration, and
