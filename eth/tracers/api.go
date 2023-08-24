@@ -1012,7 +1012,7 @@ func (api *API) TraceCallMany(ctx context.Context, bundles []ethapi.Bundle, simu
 	gp := new(core.GasPool).AddGas(math.MaxUint64)
 	for idx, txn := range replayTransactions {
 		statedb.Prepare(txn.Hash(), idx)
-		msg, err := txn.AsMessage(signer, block.BaseFee())
+		msg, err := txn.AsMessageNoNonceCheck(signer)
 		if err != nil {
 			return nil, err
 		}
