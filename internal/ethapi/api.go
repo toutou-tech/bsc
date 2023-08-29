@@ -2789,6 +2789,10 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 	if args.GasLimit != nil {
 		gasLimit = *args.GasLimit
 	}
+	var baseFee *big.Int
+	if s.b.ChainConfig().IsLondon(big.NewInt(args.BlockNumber.Int64())) {
+		baseFee = misc.CalcBaseFee(s.b.ChainConfig(), parent)
+	}
 	header := &types.Header{
 		ParentHash: parent.Hash(),
 		Number:     blockNumber,
@@ -2796,6 +2800,7 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 		Time:       timestamp,
 		Difficulty: difficulty,
 		Coinbase:   coinbase,
+		BaseFee:    baseFee,
 	}
 
 	// Setup context so it may be cancelled the call has completed
@@ -2846,7 +2851,11 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 			"toAddress":   to,
 		}
 		totalGasUsed += receipt.GasUsed
-		gasFeesTx := new(big.Int).Mul(big.NewInt(int64(receipt.GasUsed)), tx.GasPrice())
+		gasPrice, err := tx.EffectiveGasTip(header.BaseFee)
+		if err != nil {
+			return nil, fmt.Errorf("err: %w; txhash %s", err, tx.Hash())
+		}
+		gasFeesTx := new(big.Int).Mul(big.NewInt(int64(receipt.GasUsed)), gasPrice)
 		gasFees.Add(gasFees, gasFeesTx)
 		bundleHash.Write(tx.Hash().Bytes())
 		if result.Err != nil {
@@ -2870,7 +2879,7 @@ func (s *BundleAPI) CallBundle(ctx context.Context, args CallBundleArgs) (map[st
 			jsonResult["logs"] = receipt.Logs
 		}
 		jsonResult["gasFees"] = gasFeesTx.String()
-		jsonResult["gasPrice"] = tx.GasPrice().String()
+		jsonResult["gasPrice"] = gasPrice.String()
 		jsonResult["gasUsed"] = receipt.GasUsed
 		results = append(results, jsonResult)
 	}
