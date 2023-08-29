@@ -943,8 +943,8 @@ func (api *API) TraceCallMany(ctx context.Context, txs []ethapi.TransactionArgs,
 		}
 		config.BlockOverrides.Apply(&vmctx)
 	}
-	var res []interface{}
-	for _, tx := range txs {
+	results := make([]*txTraceResult, len(txs))
+	for i, tx := range txs {
 		// Execute the trace
 		msg, err := tx.ToMessage(api.backend.RPCGasCap(), block.BaseFee())
 		if err != nil {
@@ -957,11 +957,12 @@ func (api *API) TraceCallMany(ctx context.Context, txs []ethapi.TransactionArgs,
 		}
 		traceRes, err := api.traceTx(ctx, msg, new(Context), vmctx, statedb, traceConfig)
 		if err != nil {
-			return nil, err
+			results[i] = &txTraceResult{Error: err.Error()}
+			continue
 		}
-		res = append(res, traceRes)
+		results[i] = &txTraceResult{Result: traceRes}
 	}
-	return res, nil
+	return results, nil
 }
 
 func (api *API) TraceCallMany1(ctx context.Context, bundles []ethapi.Bundle, simulateContext ethapi.StateContext, config *TraceConfig) (interface{}, error) {
